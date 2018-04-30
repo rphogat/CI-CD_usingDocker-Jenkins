@@ -1,4 +1,4 @@
-def CONTAINER_NAME="jenkinspipelinemaster_jenkins"
+def CONTAINER_NAME="ramsham_sonarqube"
 def CONTAINER_TAG="latest"
 def DOCKER_HUB_USER="rphogat"
 def HTTP_PORT="8090"
