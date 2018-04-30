@@ -55,7 +55,7 @@ def imagePrune(containerName){
 }
 
 def imageBuild(containerName, tag){
-    sh "docker build -t ramsham_jenkins:latest  -t ramsham_jenkins --pull --no-cache ."
+    sh "docker build -t $containerName:latest  -t $containerName --pull --no-cache ."
     echo "Image build complete"
 }
 
