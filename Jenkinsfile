@@ -33,8 +33,9 @@ node {
 
     stage('Image Build'){
         imageBuild(CONTAINER_NAME, CONTAINER_TAG)
+        notifyStarted()
     }
-
+    
     stage('Push to Docker Registry'){
         withCredentials([usernamePassword(credentialsId: 'dockerHubAccount', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             pushToImage(CONTAINER_NAME, CONTAINER_TAG, USERNAME, PASSWORD)
@@ -71,4 +72,14 @@ def runApp(containerName, tag, dockerHubUser, httpPort){
     sh "docker pull $dockerHubUser/$containerName"
     sh "docker run -d --rm -p $httpPort:$httpPort --name $containerName $dockerHubUser/$containerName:$tag"
     echo "Application started on port: ${httpPort} (http)"
+}
+
+def notifyStarted() {
+  // send to email
+  emailext (
+      subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+      body: """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+    )
 }
