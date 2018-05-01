@@ -2,6 +2,7 @@ def CONTAINER_NAME="jenkins-pipeline-master_jenkins"
 def CONTAINER_TAG="latest"
 def DOCKER_HUB_USER="rphogat"
 def HTTP_PORT="8090"
+def RECIPIENTS = [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
 
 node {
     
@@ -10,7 +11,7 @@ node {
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
             body: """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
               <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""",
-            recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+            recipientProviders: [[$class:RECIPIENTS]]
           )
     }
 
