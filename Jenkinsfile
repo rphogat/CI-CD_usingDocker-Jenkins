@@ -2,10 +2,10 @@ def CONTAINER_NAME="jenkins-pipeline-master_jenkins"
 def CONTAINER_TAG="latest"
 def DOCKER_HUB_USER="rphogat"
 def HTTP_PORT="8090"
-def RECIPIENTS = [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
+
 
 node {
-    
+    final def RECIPIENTS = [[$class: 'DevelopersRecipientProvider'], [$class: 'RequesterRecipientProvider']]
     stage('Start'){
         emailext (
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
