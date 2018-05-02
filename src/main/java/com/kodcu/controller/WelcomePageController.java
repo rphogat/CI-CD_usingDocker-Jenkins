@@ -13,6 +13,6 @@ public class WelcomePageController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String getPage(){
-        return "index";
+        return "start";
     }
 }
