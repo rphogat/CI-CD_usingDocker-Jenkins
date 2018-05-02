@@ -6,6 +6,7 @@ def HTTP_PORT="8090"
 
 node {
     
+    emailext body: 'Starting Pipeline', subject: 'Starting Pipeline', to: 'jenkinsrphogat@gmail.com'
     stage('Start'){
         emailext (
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
