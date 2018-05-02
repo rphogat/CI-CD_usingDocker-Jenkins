@@ -6,9 +6,7 @@ def HTTP_PORT="8090"
 
 node {
       try{
-    
-    emailext body: 'Starting Continuous Integration', subject: 'CI SWEET RITU', to: 'jenkinsrphogat@gmail.com'
-    
+    emailext body: 'Staring Continuous Integration', subject: 'Continuous Integration Started', to: 'jenkinsrphogat@gmail.com'
     stage('Start'){
         emailext (
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -45,7 +43,7 @@ node {
     }
 
     stage('Image Build'){
-        imageBuild(CONTAINER_NA, CONTAINER_TAG)
+        imageBuild(CONTAINER_NAME, CONTAINER_TAG)
         notifyStarted()
     }
     
@@ -58,8 +56,10 @@ node {
     stage('Run App'){
         runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT)
     }
+            
+    emailext body: 'Continuous Integration Completed Successfully', subject: 'CI SWEET RITU', to: 'jenkinsrphogat@gmail.com'
       }catch(err){
-          emailext body: "${err}", subject:'Error Encountered', to: 'jenkinsrphogat@gmail.com'
+          emailext body: "${err}", subject:'Continuous Integration:Failed with Error', to: 'jenkinsrphogat@gmail.com'
       
       }
 }
