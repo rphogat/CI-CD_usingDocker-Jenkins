@@ -59,7 +59,7 @@ node {
         runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT)
     }
       }catch(err){
-          emailext body: '${err}', subject:'Error Encountered', to: 'jenkinsrphogat@gmail.com'
+          emailext body: "${err}", subject:'Error Encountered', to: 'jenkinsrphogat@gmail.com'
       
       }
 }
