@@ -45,7 +45,7 @@ node {
     }
 
     stage('Image Build'){
-        imageBuild(CONTAINER_NAME, CONTAINER_TAG)
+        imageBuild(CONTAINER_NA, CONTAINER_TAG)
         notifyStarted()
     }
     
