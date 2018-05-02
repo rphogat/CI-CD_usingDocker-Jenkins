@@ -5,8 +5,10 @@ def HTTP_PORT="8090"
 
 
 node {
+      try{
     
     emailext body: 'Starting Continuous Integration', subject: 'CI SWEET RITU', to: 'jenkinsrphogat@gmail.com'
+    
     stage('Start'){
         emailext (
             subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -56,8 +58,12 @@ node {
     stage('Run App'){
         runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT)
     }
-
+      }catch(err){
+          emailext body: '${err}', subject:'Error Encountered', to: 'jenkinsrphogat@gmail.com'
+      
+      }
 }
+
 
 def imagePrune(containerName){
     try {
