@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.codehaus.mojo</groupId>
             <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.0.2</version>
+            <version>3.2</version>
             <type>maven-plugin</type>
         </dependency>
     </dependencies>
