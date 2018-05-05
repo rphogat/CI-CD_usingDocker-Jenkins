@@ -40,6 +40,24 @@
 
     <build>
         <finalName>${project.artifactId}</finalName>
+        <sourceDirectory>${project.basedir}/src/main/java/com/kodcu</sourceDirectory>
+        <!--testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory-->
+        <!--testOutputDirectory>${project.build.directory}/test-classes</testOutputDirectory-->
+        <!-- Resources -->
+        <resources>
+            <resource>
+                <directory>${project.basedir}/src/main/resources</directory>
+            </resource>
+        </resources>
+        <!-- Filtering resources
+                <testResources>
+                        <testResource>
+                                <directory>${project.basedir}/src/test/resources</directory>
+                                <filtering>true</filtering>
+                        </testResource>
+                </testResources-->
+        <!-- Plugins section -->
+        <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -51,6 +69,7 @@
                     <version>3.2</version>
             </plugin>
         </plugins>
+        </pluginManagement>
     </build>
     <name>ramsham</name>
    <url>https://github.com/rphogat/ramsham</url> 
