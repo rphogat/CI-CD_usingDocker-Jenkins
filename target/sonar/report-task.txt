@@ -1,0 +1,6 @@
+projectKey=com.kodcu:maven-compiler-plugin
+serverUrl=http://localhost:9000
+serverVersion=6.7.0.33306
+dashboardUrl=http://localhost:9000/dashboard/index/com.kodcu:maven-compiler-plugin
+ceTaskId=AWMx_qcVI7wny5OngASP
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AWMx_qcVI7wny5OngASP
