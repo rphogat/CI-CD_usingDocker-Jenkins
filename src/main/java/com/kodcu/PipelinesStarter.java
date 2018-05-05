@@ -1,9 +1,5 @@
 package com.kodcu;
 
-/*
- * Created by hakdogan on 23/11/2017
- */
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
