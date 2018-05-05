@@ -29,10 +29,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>org.codehaus.mojo</groupId>
+            <groupId>org.codehaus.sonar</groupId>
             <artifactId>sonar-maven-plugin</artifactId>
-            <version>3.2</version>
+            <version>4.5.4</version>
             <type>maven-plugin</type>
         </dependency>
     </dependencies>
@@ -44,6 +45,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.2</version>
+            </plugin>
         </plugins>
     </build>
+    <name>ramsham</name>
+   <url>https://github.com/rphogat/ramsham</url> 
 </project>
