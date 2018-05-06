@@ -31,18 +31,8 @@
         <sonar.language>java</sonar.language>
         <sonar.sourceEncoding>ISO-8859-1</sonar.sourceEncoding>
         <sonar.sources>${project.basedir}/src</sonar.sources>
-        <sonar.java.binaries>${project.basedir}/target/classes
-        </sonar.java.binaries>
-        <sonar.exclusions>
-            **\webservice\orange\guis2xnet\consultacobertura\beans\**\*,
-            **\webservice\orange\guis2xnet\consultadireccionFTTH\beans\**\*,
-            **\webservice\orange\guis2xnet\consultaPrefijo\bean\**\*,
-            **\webservice\orange\guis2xnet\crearOrdenBajaPostventaService\bean\**\*,
-            **\webservice\orange\guis2xnet\crearOrdenBajaService\bean\**\*,
-            **\webservice\orange\hermes\ordenes\beans\**\*,
-            **\webservice\orange\provision\beans\**\*,
-            **\webservice\orange\siebel\consultaordenes\beans\**\*
-        </sonar.exclusions>
+        <sonar.java.binaries>/bin</sonar.java.binaries>
+        
         <!-- <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin> 
             <sonar.jacoco.reportPath>${project.basedir}/target/jacoco.exec</sonar.jacoco.reportPath> 
             <jacoco.destFile>${project.basedir}/target/jacoco.exec</jacoco.destFile> -->
