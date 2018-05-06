@@ -57,7 +57,7 @@ node {
         runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT)
     }
             
-    emailext body: 'Continuous Integration Completed Successfully', subject: 'CI SWEET RITU', to: 'jenkinsrphogat@gmail.com'
+    emailext body: 'Continuous Integration Completed Successfully', subject: 'Continuous Integration Completed Successfully', to: 'jenkinsrphogat@gmail.com'
       }catch(err){
           emailext body: "${err}", subject:'Continuous Integration:Failed with Error', to: 'jenkinsrphogat@gmail.com'
       
