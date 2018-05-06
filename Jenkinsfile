@@ -1,4 +1,4 @@
-def CONTAINER_NAME="7b210b6c238a"
+def CONTAINER_NAME="jenkins"
 def CONTAINER_TAG="latest"
 def DOCKER_HUB_USER="rphogat"
 def HTTP_PORT="8090"
