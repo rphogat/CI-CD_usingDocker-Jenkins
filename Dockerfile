@@ -6,7 +6,7 @@ COPY src/ pipeline/src/
 
 WORKDIR pipeline/
 
-RUN mvn sonar:sonar -Dsonar.host.url=http://192.168.43.97:9000
+RUN mvn sonar:sonar -Dsonar.host.url=http://192.168.0.101:9000
 
 EXPOSE 8090
 
