@@ -33,7 +33,7 @@
         <sonar.sourceEncoding>ISO-8859-1</sonar.sourceEncoding>
         <sonar.sources>${project.basedir}/src</sonar.sources>
         <!--sonar.tests>${project.basedir}/test</sonar.tests-->
-        <sonar.java.binaries>${project.basedir}/target/classes
+        <sonar.java.binaries>${project.basedir}/src/com/kodcu
         </sonar.java.binaries>
         <sonar.exclusions>
             **\webservice\orange\guis2xnet\consultacobertura\beans\**\*,
