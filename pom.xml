@@ -16,9 +16,10 @@
 
     <properties>
         <release>${project.version}</release>
+        <jdk_version>1.8</jdk_version>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
         <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
-        <path_jdk_bin>${path_jdk}\bin</path_jdk_bin>
+        <path_jdk_bin>/Library/Java/JavaVirtualMachines/jdk-10.0.1.jdk/Contents/Home/bin</path_jdk_bin>
         <compiler_argument>-XDignore.symbol.file</compiler_argument>
         <maven.build.timestamp.format>MM.yyyy</maven.build.timestamp.format>
         <yearMonth>${maven.build.timestamp}</yearMonth>
