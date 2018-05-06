@@ -2,23 +2,22 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.kodcu</groupId>
-    <artifactId>maven-compiler-plugin</artifactId>
-    <version>org.apache.maven.plugins</version>
-    <packaging>war</packaging>
+    <artifactId>ramsham</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <name>ramsham</name>
-    <url>https://repo.maven.apache.org/maven2</url>
+    <url>http://maven.apache.org</url>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.8.RELEASE</version>
+        <version>1.5.3.RELEASE</version>
     </parent>
 
     <properties>
         <release>${project.version}</release>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
-        <jdk_version>1.5</jdk_version>
-        <path_jdk>C:\Program Files\Java\jdk1.5.0_22</path_jdk>
+        <project.reporting.outputEncoding>ISO-8859-1</project.reporting.outputEncoding>
         <path_jdk_bin>${path_jdk}\bin</path_jdk_bin>
         <compiler_argument>-XDignore.symbol.file</compiler_argument>
         <maven.build.timestamp.format>MM.yyyy</maven.build.timestamp.format>
@@ -32,7 +31,6 @@
         <sonar.language>java</sonar.language>
         <sonar.sourceEncoding>ISO-8859-1</sonar.sourceEncoding>
         <sonar.sources>${project.basedir}/src</sonar.sources>
-        <!--sonar.tests>${project.basedir}/test</sonar.tests-->
         <sonar.java.binaries>${project.basedir}/target/classes
         </sonar.java.binaries>
         <sonar.exclusions>
@@ -51,87 +49,94 @@
     </properties>
 
 
-    <build>
-        <directory>${project.basedir}/target</directory>
-        <outputDirectory>${project.build.directory}/classes</outputDirectory>
-        <finalName>${project.artifactId}-${project.version}</finalName>
-        <!--testOutputDirectory>${project.build.directory}/test-classes
-        </testOutputDirectory-->
-        <sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
-        <!--testSourceDirectory>${project.basedir}/src/test/java
-        </testSourceDirectory-->
-
-        <!-- Resources -->
-        <resources>
-            <resource>
-                <directory>${project.basedir}/src/main/java</directory>
-            </resource>
-        </resources>
-
-        <!-- Filtering resources -->
-        <!--testResources>
-            <testResource>
-                <directory>${project.basedir}/src/test/resources</directory>
-                <filtering>true</filtering>
-            </testResource>
-        </testResources-->
-
-        <pluginManagement>
-            <plugins>
-
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.1</version>
-                    <configuration>
-                        <verbose>${verbose}</verbose>
-                        <fork>${fork}</fork>
-                        <debug>${debug}</debug>
-                        <executable>${path_jdk_bin}\javac</executable>
-                        <compilerVersion>${jdk_version}</compilerVersion>
-                        <source>${jdk_version}</source>
-                        <target>${jdk_version}</target>
-                        <compilerArgument>${compiler_argument}</compilerArgument>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.7.1</version>
-                    <configuration>
-                        <skipTests>${skip_test}</skipTests>
-                        <testFailureIgnore>${test_failure_ignore}</testFailureIgnore>
-                    </configuration>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
+    <!--a<build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <verbose>${verbose}</verbose>
+                    <fork>${fork}</fork>
+                    <debug>${debug}</debug>
+                    <executable>${path_jdk_bin}\javac</executable>
+                    <compilerVersion>${jdk_version}</compilerVersion>
+                    <source>${jdk_version}</source>
+                    <target>${jdk_version}</target>
+                    <compilerArgument>${compiler_argument}</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/resources/**</exclude>
+                    </excludes>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-a-jar</id>
+                        <phase>package</phase>
+                        <goals> <goal>jar</goal> 
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build-->
 
     <profiles>
-
-
         <profile>
             <id>sonar</id>
             <activation>
-
                 <activeByDefault>true</activeByDefault>
-
             </activation>
-
             <properties>
-
                 <sonar.host.url>http://localhost:9000</sonar.host.url>
-
             </properties>
             <build>
                 <plugins>
-                    <!-- <plugin> <artifactId>maven-clean-plugin</artifactId> <configuration> 
-                        <excludeDefaultDirectories>true</excludeDefaultDirectories> </configuration> 
-                        </plugin> -->
-                    <!-- <plugin> <artifactId>org.sonarsource.scanner.maven</artifactId> 
-                        </plugin> -->
-
-                    <plugin>
+                <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <verbose>${verbose}</verbose>
+                    <fork>${fork}</fork>
+                    <debug>${debug}</debug>
+                    <executable>${path_jdk_bin}\javac</executable>
+                    <compilerVersion>${jdk_version}</compilerVersion>
+                    <source>${jdk_version}</source>
+                    <target>${jdk_version}</target>
+                    <compilerArgument>${compiler_argument}</compilerArgument>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.3</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/resources/**</exclude>
+                    </excludes>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-a-jar</id>
+                        <phase>package</phase>
+                        <!-- <goals> <goal>jar</goal> </goals> -->
+                    </execution>
+                </executions>
+            </plugin>
+                  <!--  <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-war-plugin</artifactId>
                         <version>2.3</version>
@@ -140,7 +145,7 @@
                                 <addMavenDescriptor>false</addMavenDescriptor>
                             </archive>
                         </configuration>
-                    </plugin>
+                    </plugin> -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-resources-plugin</artifactId>
@@ -173,8 +178,6 @@
                 </plugins>
             </build>
         </profile>
-
-
     </profiles>
 
     <dependencies>
