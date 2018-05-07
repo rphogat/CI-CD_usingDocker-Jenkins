@@ -6,7 +6,7 @@ COPY src/ pipeline/src/
 
 WORKDIR pipeline/
 
-RUN mvn sonar:sonar
+RUN mvn clean install
 
 EXPOSE 8090
 
