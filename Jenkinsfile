@@ -26,9 +26,9 @@ node {
         checkout scm
     }
 
-    stage('Build'){
-        sh " mvn clean install -DskipTests -Dfindbugs.skip -Dlicense.skip -Denforcer.skip  -Dmdep.analyze.skip"
-    }
+    //stage('Build'){
+      //  sh " mvn clean install -DskipTests -Dfindbugs.skip -Dlicense.skip -Denforcer.skip  -Dmdep.analyze.skip"
+    //}
 
     stage('Sonar'){
         try {
