@@ -56,7 +56,7 @@ node {
     stage('Run App'){
         runApp(CONTAINER_NAME, CONTAINER_TAG, DOCKER_HUB_USER, HTTP_PORT)
     }
-            
+    notifyCompletion()       
     emailext body: 'Continuous Integration Completed Successfully', subject: 'Continuous Integration Completed Successfully', to: 'jenkinsrphogat@gmail.com'
       }catch(err){
           emailext body: "${err}", subject:'Continuous Integration:Failed with Error', to: 'jenkinsrphogat@gmail.com'
@@ -96,6 +96,16 @@ def notifyStarted() {
   emailext (
       subject: "STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
       body: """<p>STARTED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+    )
+}
+
+def notifyCompletion() {
+  // send to email
+  emailext (
+      subject: "COMPLETED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+      body: """<p>COMPLETED with following buildNumber: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
         <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
