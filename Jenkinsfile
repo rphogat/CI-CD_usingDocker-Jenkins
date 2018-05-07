@@ -29,6 +29,7 @@ node {
     //stage('Build'){
       //  sh " mvn clean install -DskipTests -Dfindbugs.skip -Dlicense.skip -Denforcer.skip  -Dmdep.analyze.skip"
     //}
+    //Build Phase
 
     stage('Sonar'){
         try {
