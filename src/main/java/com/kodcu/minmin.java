@@ -45,7 +45,27 @@ public class minmin {
 //		    }
 	}
 	
+	public static int [] onBase (int a[]) {
 		
+		for(int i=0; i<=100; i++) {
+			if(i% 3 == 0)
+			{
+				//System.out.println("On");
+			}else if(i%7 ==0)
+			{
+				//System.out.println("Base");
+			}else if(i% 3 == 0 && i%7 ==0) {
+				//System.out.println("OnBase");
+			}else {}
+			
+		}
+		
+		
+		return a;
+		
+		
+	}
+	
 
 	    public static void isPrime() {
 
