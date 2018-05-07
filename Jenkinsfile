@@ -59,8 +59,9 @@ node {
     notifyCompletion()       
     emailext body: 'Continuous Integration Completed Successfully', subject: 'Continuous Integration Completed Successfully', to: 'jenkinsrphogat@gmail.com'
       }catch(err){
+          notifyFailure()
           emailext body: "${err}", subject:'Continuous Integration:Failed with Error', to: 'jenkinsrphogat@gmail.com'
-      
+            
       }
 }
 
@@ -110,3 +111,13 @@ def notifyCompletion() {
       recipientProviders: [[$class: 'DevelopersRecipientProvider']]
     )
 }
+
+def notifyFailure() {
+  // send to email
+  emailext (
+      subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
+      body: """<p>FAILED with following buildNumber: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
+        <p>Check console output at "<a href="${env.BUILD_URL}">${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>"</p>""",
+      recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+    )
+
